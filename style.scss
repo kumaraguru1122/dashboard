@@ -1,0 +1,359 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+$blue:#72b4fe;
+$light-blue:#d0ecff;
+$white:white;
+@mixin p-100 {
+    width: 100%;
+    height: 100%;
+}
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+main{
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 20% auto;
+    grid-template-areas: 'main-nav main-section';
+}
+.side-nav{
+    @include p-100();
+    grid-area: main-nav;
+    padding: 2em 0;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-rows: 30% auto;
+    background-color: $blue;
+    .profile-info{
+        @include p-100();
+        // display: flex;
+        // align-items: center;
+        // flex-direction: column;
+        // justify-content: space-evenly;
+        border-bottom: 1px solid rgb(66, 66, 66);
+        padding: 1em 0;
+        text-align: center;
+        img{
+           margin:1em 2.7em;
+            width: 75px;
+            filter:drop-shadow( 2px 2px 5px black);
+        }
+        #user-name{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+        }
+        #mail-id{
+            font-family: monospace;
+            font-size: 13px;
+            font-weight: bold;
+            color: rgb(66, 66, 66);
+        }
+
+    }
+    nav{
+        @include p-100();
+        @include flex-center();
+        ul{
+            padding: 2em 1em;
+           @include flex-center();
+           align-items: flex-start;
+           flex-direction: column;
+           li{
+            margin-bottom: 2em;
+            display: flex;
+            img{
+               height: 15px;
+               width: auto;
+               margin-right:1em ;
+            }
+            a{
+                color: black;
+                font-family: sans-serif;
+                font-size: 15px;
+                font-weight: bold;
+            }
+           }
+        }
+    }
+    button{
+        justify-self: center;
+        background-color: black;
+        padding: 0.5em 1em;
+        color: $white;
+        border-radius: 20px;
+        font-size: 15px;
+    }
+}
+.main-section{
+    grid-area: main-section;
+    background-color: $light-blue;
+    display: grid;
+    grid-template-rows: 10% auto;
+    header{
+        border-bottom: 2px solid rgb(66, 66, 66);
+        @include flex-center();
+        justify-content: space-around;
+        @include p-100();
+    }
+}
+header{
+    nav{
+        
+        ul{
+            display: flex;
+            width: 100%;
+            li{
+                margin: 0 1em;
+                a{
+                    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    color: black;
+                    font-weight: bold;
+
+
+                }
+            }
+        }
+    
+    }
+    .search-bar{
+        @include flex-center();
+        align-items: unset;
+        border: 2px solid black;
+        border-radius: 20px;
+        overflow: hidden;
+        background-color: #fff;
+        padding: 0 1em;
+        input{
+            padding: 0.5em;
+            border: none;
+        }
+        img{
+            align-self: center;
+            width: 20px;
+        }
+    }
+}
+.hero{
+    display: grid;
+    padding: 2em;
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows:  1fr 1fr 1fr;
+    gap: 2em;
+    ul li{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    p{  
+        margin-bottom: 0.5em;
+        font-size: 15px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    .content{
+        padding: 1em;
+        background-color: $white;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px rgba(59, 59, 59, 0.527);
+    }
+    #earnings,#growth,#v-items,#invoices,#message{
+        grid-column: span 2;
+    }
+    #expense{
+        grid-row: span 2;
+    } 
+}
+.content{
+    h2{
+        font-family: sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        color: rgb(1, 1, 75);
+        margin-bottom: 1em;
+    }
+    button{
+        background-color: $blue;
+        border: 1px solid rgb(66, 66, 66);
+        border-radius: 20px;
+        padding: 0.1em 1em;
+    }
+    .big{
+        font-size: 30px;
+        font-family: monospace;
+    }
+    .top{
+        display: flex;
+        justify-content: space-between;
+        img{
+            height: 20px;
+            width: auto;
+        }
+    }
+  
+}
+.lsr{
+    padding:0;
+    grid-column: span 3;
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   column-gap: 2em;
+}
+.infos-1{
+    background-color: $white;
+    box-shadow: 5px 5px 10px rgba(59, 59, 59, 0.527);
+    padding: 1em;
+    border-radius: 20px;
+   .top{
+    display: flex;
+    justify-content: space-between;
+    h2{
+        font-family: sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        color: rgb(1, 1, 75);
+        margin-bottom: 1em;
+    }
+   }
+   .big{
+    font-size: 30px;
+    font-family: monospace;
+}
+    img{
+        height: 20px;
+        width: auto;
+    }
+}
+
+#earnings{
+    background-color: $blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    p{
+        font-weight: bold;
+    }
+    button{
+        background-color: $white;
+        align-self: flex-end;
+    }
+}
+#growth{
+    img{
+        width: 100%;
+        height: 75px;
+    }
+}
+#expense{
+    .pc-i{
+        @include flex-center();
+        @include p-100();
+        flex-direction: column;
+        justify-content: space-evenly; 
+        padding-bottom: 2em;
+        img{
+            width: 70px;
+        }
+   }
+   
+}
+#message{
+    .l-p{
+        display: list-item;
+        list-style-type: disc;
+        margin-left: 1em;
+    }
+}
+@media (max-width:450px) {
+    main{
+        grid-template-areas: 'main-section'  'main-nav';
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        .side-nav{
+            padding: 0.5em 0;
+            position: sticky;
+            bottom: 0;
+            display: flex;
+            height: fit-content;
+            .profile-info{
+                display: none;
+            }
+            nav{
+                ul{
+                    @include p-100();
+                    display: flex;
+                    justify-content:space-evenly ;
+                    align-items: center;
+                    flex-direction: row;
+                    padding: 0;
+                    li{
+                        margin: 0;
+                        a{
+                            display: none;
+                        }
+                        img{
+                            height: 25px;
+                            width: auto;
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+            button{
+                display: none;
+            }
+        }
+        .main-section{
+            grid-template-rows: 3% auto;
+            // overflow: auto;
+            p{
+                font-size: 13px;
+            }
+            header{
+                justify-content: space-between;
+                background-color: $blue;
+                position: sticky;
+                top: 0;
+                .main-nav{
+                  
+                    ul{ 
+                        margin: 0 1em;
+                        li{
+                            display: none;
+                        }
+                    } 
+                }
+                .search-bar{
+                    margin-right: 2em;
+                    input{
+                        display: none;
+                    }
+                }
+            }
+            .hero{
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                .infos-1{
+                    img{
+                        display: none;
+                    }
+                }
+                #expense{
+                    .pc-i{
+                        flex-direction: row;
+                    }
+                }
+            }
+        }
+    }
+}
+
